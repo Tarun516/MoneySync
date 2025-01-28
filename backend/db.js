@@ -1,9 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(
-  "mongodb+srv://taruncv516:CvTarun%40516@cluster0.b2fuq.mongodb.net/"
-);
-
+mongoose.connect(process.env.MONGODB_URI);
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -52,5 +49,5 @@ const User = mongoose.model("User", userSchema);
 const Account = mongoose.model("Account", accountSchema);
 module.exports = {
   User,
-  Account
+  Account,
 };
